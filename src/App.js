@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+
   constructor() {
     super();
     this.state = {
@@ -40,14 +40,13 @@ class App extends Component {
     
     return (
       <div className="App">
-        <Controls firstName={firstName} lastName={lastName} message={message}
+        <Controls firstName={firstName} lastName={lastName} message={message} bgColor={bgColor} color={color} 
           onFirstNameChange={firstName => this.handleFirstNameChange(firstName)}
           onLastNameChange={lastName => this.handleLastNameChange(lastName)}
           onMessageChange={message => this.handleMessageChange(message)}
           onBGColorChange={bgColor => this.handleBGColorChange(bgColor)}
           onColorChange={color => this.handleColorChange(color)}
         />
-        
       </div>
     );
   }
@@ -58,6 +57,9 @@ class Controls extends Component {
     const { firstName, lastName, message, bgColor, color, onFirstNameChange, onLastNameChange, onMessageChange, onBGColorChange, onColorChange } = this.props;
     return (
       <div>
+        <div style={{ backgroundColor: bgColor }}>
+          <h1 style={{ color }}>"{message}" says {firstName} {lastName}</h1>
+        </div>
         <label>
           firstName:
           <input name="firstName" value={firstName}
@@ -75,12 +77,12 @@ class Controls extends Component {
         </label>
         <label>
           bgColor:
-          <input name="bgColor" value={bgColor}
+          <input name="bgColor" type="color" value={bgColor}
             onChange={({ target }) => onBGColorChange(target.value)}/>
         </label>
         <label>
           color:
-          <input name="color" value={color}
+          <input name="color" type="color" value={color}
             onChange={({ target }) => onColorChange(target.value)}/>
         </label>
       </div>
