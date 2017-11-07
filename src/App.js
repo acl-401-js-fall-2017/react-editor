@@ -36,16 +36,18 @@ class App extends Component {
           <h1 className="App-title">Playing around with React</h1>
         </header>
         <p className="App-intro">
-          <span>Hello React!<input/></span>
+          <span>Hello React!</span>
         </p>
         <Controls salutation={salutation} name={name}
           onSalutationChange={salutation => this.handleSalutationChange(salutation)}
           onNameChange={name => this.handleNameChange(name)}
           onColorChange={color => this.handleColorChange(color)}
         />
-        <Greeting salutation={salutation}
-          color ={color} name={name}
-        />
+        <p>
+          <Greeting salutation={salutation}
+            color ={color} name={name}
+          />
+        </p>
       </div>
     );
   }
