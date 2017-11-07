@@ -17,6 +17,7 @@ class App extends Component {
 
       dupes: 1,
       color: 0,
+      colorHistory: [0],
 
       compMessage: 'if we match',
       compHash: 'you\'ll see green',
@@ -55,9 +56,8 @@ class App extends Component {
   }
 
   handleColorChange(value) {
-    console.log(this.state.color);
     this.setState({ color: value });
-    console.log(this.state.color);
+    this.setState({ colorHistory: this.state.colorHistory.concat(value) });
   }
 
   componentDidMount() {
@@ -74,7 +74,8 @@ class App extends Component {
       encrypted, 
       salt, 
       dupes, 
-      color, 
+      color,
+      colorHistory,
       doesComp, 
       compMessage, 
       compHash
@@ -122,6 +123,7 @@ class App extends Component {
           doesComp={doesComp}
           dupes={dupes}
           color = {color}
+          colorHistory = {colorHistory}
         />
       </div>
     );
