@@ -15,7 +15,6 @@ class App extends Component {
       concat:'snakeCase'
     };
 
-    this.onColorChange = this.onColorChange.bind(this);
 
     this.onWidthChange = this.onWidthChange.bind(this);
 
@@ -24,9 +23,11 @@ class App extends Component {
     this.onTextChange = this.onTextChange.bind(this);
 
     this.onConcatChange = this.onConcatChange.bind(this);
-  }
 
-  onColorChange(e) {
+    // this.onColorChange = this.onColorChange.bind(this);
+  }
+  // this is voodo magic but freaking cook 
+  onColorChange =(e) => {
     this.setState({ color: e.target.value });
   }
 
@@ -57,32 +58,32 @@ class App extends Component {
   }
 
 
-  render() {
-    function displayText(text, concat){
-      let wordArray= text.split(' ');
-      if(concat === 'snakeCase')  return toSnake(wordArray);
-      if(concat === 'kebabCase') return toKebab(wordArray);
-      if(concat === 'camelCase') return toCamel(wordArray);
+  displayText(text, concat){
+    let wordArray= text.split(' ');
+    if(concat === 'snakeCase')  return toSnake(wordArray);
+    if(concat === 'kebabCase') return toKebab(wordArray);
+    if(concat === 'camelCase') return toCamel(wordArray);
 
-      function toSnake(text){
-        return text.join('_');
-      }
-
-      function toKebab(text){
-        return text.join('-');
-      }
-
-      function toCamel(text){
-        const camelized = [];
-        text.forEach(value =>{
-          let letters = value.split('');
-          letters[0]=letters[0].toUpperCase();
-          camelized.push(letters.join(''));
-        });
-        return camelized.join('');
-        
-      }
+    function toSnake(text){
+      return text.join('_');
     }
+
+    function toKebab(text){
+      return text.join('-');
+    }
+
+    function toCamel(text){
+      const camelized = [];
+      text.forEach(value =>{
+        let letters = value.split('');
+        letters[0]=letters[0].toUpperCase();
+        camelized.push(letters.join(''));
+      });
+      return camelized.join('');
+    }
+  }
+
+  render() {
 
     return (
       <div className="App">
@@ -111,7 +112,7 @@ class App extends Component {
             height: `${this.state.height}px`,
             border: `4px ${this.state.borderStyle} ${this.state.color}`
           }}>
-            <span>{displayText(this.state.text, this.state.concat)}</span>
+            <span>{this.displayText(this.state.text, this.state.concat)}</span>
           </div>
 
           <div className="controls">
