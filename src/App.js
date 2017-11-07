@@ -13,7 +13,7 @@ class App extends Component {
     this.state = {
       salutation: 'Today is',
       statement: 'Tuesday',
-      color: '#C70039',
+      color: '#c70039',
       season: 'Winter',
       sun: true
     };

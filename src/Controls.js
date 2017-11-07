@@ -17,7 +17,7 @@ class Controls extends Component {
         </label>
         <label>
           color:
-          <input name="color" value={color}
+          <input name="color" value={color} type="color"
             onChange={({ target }) => onColorChange(target.value)} />
         </label>
       </div>
