@@ -15,6 +15,9 @@ export default class Form extends React.Component {
   }
 
     change = event => {
+      this.props.onChange({
+        [event.target.name]: event.target.value
+      });
       this.setState({
         [event.target.name]: event.target.value
       });
@@ -22,37 +25,73 @@ export default class Form extends React.Component {
 
     onSubmit = (event) => {
       event.preventDefault();
-      this.props.onSubmit(this.state);
+      this.setState({
+        firstName: '',
+        lastName: '',
+        userName: '',
+        email: '',
+        password: '',
+      });
+
+      this.props.onChange({
+        firstName: '',
+        lastName: '',
+        userName: '',
+        email: '',
+        password: '',
+      });
+    }
+
+    resetForm = (event) => {
+      event.preventDefault();
+      this.setState({
+        firstName: '',
+        lastName: '',
+        userName: '',
+        email: '',
+        password: '',
+  
+      });
+
+      this.props.onChange({
+        firstName: '',
+        lastName: '',
+        userName: '',
+        email: '',
+        password: '',
+      });
     }
 
     render() {
+      const { firstName, lastName, userName, email, password } = this.state;
+      
       return (
         <form>
           <input 
             name='firstName'
             placeholder='First name' 
-            value={this.state.firstName}
+            value={firstName}
             onChange={event => this.change(event)}>
           </input>
           <br />
           <input 
             name='lastName'
             placeholder='Last name' 
-            value={this.state.lastName}
+            value={lastName}
             onChange={event => this.change(event)}>
           </input>
           <br />
           <input 
             name='userName'
             placeholder='User name' 
-            value={this.state.userName}
+            value={userName}
             onChange={event => this.change(event)}>
           </input>
           <br />
           <input 
             name='email'
             placeholder='email' 
-            value={this.state.email}
+            value={email}
             onChange={event => this.change(event)}>
           </input>
           <br />
@@ -60,11 +99,13 @@ export default class Form extends React.Component {
             name='password'
             type='password'
             placeholder='password' 
-            value={this.state.password}
+            value={password}
             onChange={event => this.change(event)}>
           </input>
           <br />
           <button onClick={event => this.onSubmit(event)}> Submit 
+          </button>
+          <button onClick={event => this.resetForm(event)}> Cancel 
           </button>
         </form>
       );
