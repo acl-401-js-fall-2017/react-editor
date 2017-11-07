@@ -6,7 +6,7 @@ class Season extends Component {
     const { season } = this.props;
 
     return (
-      <form onSubmit={this.props.onSeasonSubmit}>
+      <form onSubmit={this.props.onSeasonSubmit}  style={{ season, padding: '10px' }}>
         <label>
         Chose the current season:
           <select value={season} onChange={this.props.onSeasonChange}>
