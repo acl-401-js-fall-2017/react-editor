@@ -9,13 +9,14 @@ export default class Form extends React.Component {
       password: '',
     }
 
-    change = e => {
+    change = event => {
       this.setState({
-        [e.target.name]: e.target.value
+        [event.target.name]: event.target.value
       });
     }
 
-    onSubmit = () => {
+    onSubmit = (event) => {
+      event.preventDefault();
       console.log(this.state);
     }
 
@@ -26,33 +27,40 @@ export default class Form extends React.Component {
             name='firstName'
             placeholder='First name' 
             value={this.state.firstName}
-            onChange={e => this.change(e)}>
+            onChange={event => this.change(event)}>
           </input>
+          <br />
           <input 
             name='lastName'
             placeholder='Last name' 
             value={this.state.lastName}
-            onChange={e => this.change(e)}>
+            onChange={event => this.change(event)}>
           </input>
+          <br />
           <input 
             name='userName'
             placeholder='User name' 
             value={this.state.userName}
-            onChange={e => this.change(e)}>
+            onChange={event => this.change(event)}>
           </input>
+          <br />
           <input 
             name='email'
             placeholder='email' 
             value={this.state.email}
-            onChange={e => this.change(e)}>
+            onChange={event => this.change(event)}>
           </input>
+          <br />
           <input 
             name='password'
             type='password'
             placeholder='password' 
             value={this.state.password}
-            onChange={e => this.change(e)}>
+            onChange={event => this.change(event)}>
           </input>
+          <br />
+          <button onClick={event => this.onSubmit(event)}> Submit 
+          </button>
         </form>
       );
     }
