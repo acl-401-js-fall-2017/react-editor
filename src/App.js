@@ -42,7 +42,7 @@ class App extends Component {
   }
 
   onHeightChange(e) {
-    const goodInput = /^[0-9]+$/;
+    const goodInput = /^[0-9]*$/;
     if (goodInput.test(e.target.value)) {
       this.setState({ height: e.target.value });
     }
