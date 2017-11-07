@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import BoxControls from './BoxControls'; 
+import displayText from './displayText';
 
 class App extends Component {
   constructor() {
@@ -58,31 +59,6 @@ class App extends Component {
   }
 
 
-  displayText(text, concat){
-    let wordArray= text.split(' ');
-    if(concat === 'snakeCase')  return toSnake(wordArray);
-    if(concat === 'kebabCase') return toKebab(wordArray);
-    if(concat === 'camelCase') return toCamel(wordArray);
-
-    function toSnake(text){
-      return text.join('_');
-    }
-
-    function toKebab(text){
-      return text.join('-');
-    }
-
-    function toCamel(text){
-      const camelized = [];
-      text.forEach(value =>{
-        let letters = value.split('');
-        letters[0]=letters[0].toUpperCase();
-        camelized.push(letters.join(''));
-      });
-      return camelized.join('');
-    }
-  }
-
   render() {
     return (
       <div className="App">
@@ -111,7 +87,7 @@ class App extends Component {
             border: `4px ${this.state.borderStyle} ${this.state.color}`
           }}>
             <img src={logo} className="App-logo" alt="logo" /> 
-            <span>{this.displayText(this.state.text, this.state.concat)}</span>
+            <span>{displayText(this.state.text, this.state.concat)}</span>
           </div>
 
           <div className="controls">
