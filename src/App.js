@@ -18,9 +18,9 @@ class App extends Component {
       dupes: 1,
       color: 0,
 
-      compMessage: 'don\'t touch me I\'m buggy',
-      compHash: 'me too',
-      doesComp: 'nope'
+      compMessage: 'if we match',
+      compHash: 'you\'ll see green',
+      doesComp: false
     };
   }
   
