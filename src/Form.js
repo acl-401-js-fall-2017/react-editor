@@ -1,13 +1,18 @@
 import React from 'react';
 
 export default class Form extends React.Component {
-    state = {
+    
+  constructor() {
+    super();
+    this.state = {
       firstName: '',
       lastName: '',
       userName: '',
       email: '',
       password: '',
-    }
+
+    };
+  }
 
     change = event => {
       this.setState({
@@ -17,7 +22,7 @@ export default class Form extends React.Component {
 
     onSubmit = (event) => {
       event.preventDefault();
-      console.log(this.state);
+      this.props.onSubmit(this.state);
     }
 
     render() {
