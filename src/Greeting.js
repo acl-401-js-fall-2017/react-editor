@@ -5,9 +5,9 @@ class Greeting extends Component {
     const { salutation, statement, color } = this.props;
 
     return (
-      <div style={{ color }} >
+      <div style={{ color, fontWeight: 'bold', fontSize: '30px', padding: '50px' }} >
         <span>
-          {salutation.toUpperCase()}
+          {salutation} 
         </span>
         {' '}
         <span>
