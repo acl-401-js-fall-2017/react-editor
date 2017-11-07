@@ -14,6 +14,7 @@ class App extends Component {
   onChange = updatedValues => {
     this.setState({ 
       fields: {
+        ...this.state.fields,
         ...updatedValues
       }
     });
