@@ -1,8 +1,32 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Controls from './Controls';
+import Greeting from './Greeting';
 
 class App extends Component {
+
+  constructor() {
+    super();
+    this.state = {
+      salutation: 'Today is',
+      statement: 'Tuesday',
+      color: '#C70039'
+    };
+  }
+
+  handleSalutationChange(value) {
+    this.setState({ salutation: value });
+  }
+
+  handleStatementChange(value) {
+    this.setState({ statement: value });
+  }
+
+  handleColorChange(value) {
+    this.setState({ color: value });
+  }
+
   render() {
     return (
       <div className="App">
@@ -10,9 +34,14 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <Controls salutation={salutation} statement={statement}
+          onSalutationChange={salutation => this.handleSalutationChange(salutation)}
+          onStatementChange={statement => this.handleStatementChange(statement)}
+          onColorChange={color => this.handleColorChange(color)}
+        />
+        <Greeting salutation={salutation}
+          color={color} statement={statement}
+        />
       </div>
     );
   }
