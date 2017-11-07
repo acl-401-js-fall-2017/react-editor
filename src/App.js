@@ -81,7 +81,7 @@ class Controls extends Component {
 
 class Greeting extends Component {
   render() {
-    const { salutation, name, color} = this.props;
+    const { salutation, name, color } = this.props;
     return(
       <div style={{ color }}>
         <span>{salutation}</span>
