@@ -8,7 +8,8 @@ class App extends Component {
     super();
     this.state = {
       salutation: 'Hello ',
-      name: '401 JS'
+      name: '401 JS',
+      color: '#fffff'
     };
   }
 
@@ -20,9 +21,13 @@ class App extends Component {
     this.setState({ name: value });
   }
 
+  handleColorChange(value) {
+    this.setState({ color: value });
+  }
+
 
   render() {
-    const { salutation, name } = this.state;
+    const { salutation, name, color } = this.state;
 
     return (
       <div className="App">
@@ -36,9 +41,10 @@ class App extends Component {
         <Controls salutation={salutation} name={name}
           onSalutationChange={salutation => this.handleSalutationChange(salutation)}
           onNameChange={name => this.handleNameChange(name)}
+          onColorChange={color => this.handleColorChange(color)}
         />
         <Greeting salutation={salutation}
-          name={name}
+          color ={color} name={name}
         />
       </div>
     );
@@ -47,7 +53,7 @@ class App extends Component {
 
 class Controls extends Component {
   render() {
-    const { salutation, name, onSalutationChange, onNameChange  } = this.props;
+    const { salutation, name, color, onSalutationChange, onNameChange, onColorChange } = this.props;
     return (
       <div>
         <label>
@@ -60,6 +66,11 @@ class Controls extends Component {
           <input name="name" value={name}
             onChange={({ target }) => onNameChange(target.value)} />
         </label>
+        <label>
+          color:
+          <input name="color" type="color" value={color}
+            onChange={({ target }) => onColorChange(target.value)} />
+        </label>
       </div>
 
     );
@@ -68,9 +79,9 @@ class Controls extends Component {
 
 class Greeting extends Component {
   render() {
-    const { salutation, name} = this.props;
+    const { salutation, name, color} = this.props;
     return(
-      <div>
+      <div style={{ color }}>
         <span>{salutation}</span>
         <span>{name}</span>
       </div>
