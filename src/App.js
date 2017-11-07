@@ -3,18 +3,47 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+
+  constructor(){
+    super();
+    this.state = {
+      salutation: 'Hello', 
+      name: 'Defaut name',
+      color: '#fffff'
+    }
+  }
+
+  handleSalutationChange(value){
+    this.setState({ salutaion: value});
+  }
+
+  handleNameChange(value){
+    this.setState({ name: value});
+  }
+
+  handleColorChange(value){
+    this.setState({ color: value})
+  }
+
+
   render() {
+
+    const { salutation, name, color } = this.state;
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <Controls salutation={salutation} name={name}
+          onSalutationChange={salutation => this.handleSalutationChange(salutation)}
+          onNameChange={name => this.handleNameChange(name)}
+          onColorChange={color => this.handleColorChange(color)}
+        />
       </div>
     );
+  }
+}
+
+class Greeting extends Component {
+  render(){
+    const { salutation, name, color, onSalutationChange, onNameChange, onColorChange} = this.props;
   }
 }
 
