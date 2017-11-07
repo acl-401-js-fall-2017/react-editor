@@ -12,12 +12,10 @@ class App extends Component {
   }
 
   handleOnItalic(value) {
-    console.log(value);
     this.setState({ italic: value });
   }
 
   handleOnBold(value) {
-    console.log(value);
     this.setState({ bold: value });
   }
 
@@ -34,11 +32,11 @@ class App extends Component {
     const { color, italic, bold, fontSize, message } = this.state;
     let fontStyle = null;
     if(italic === true) {
-      fontStyle = "italic";
+      fontStyle = 'italic';
     }
     let fontWeight = null;
     if(bold === true) {
-      fontWeight = "bold";
+      fontWeight = 'bold';
     }
     return (
       <div className="App">
@@ -82,17 +80,17 @@ class App extends Component {
           </label>
         </div>
         <div>
-        <textarea
-          id="editor"
-          name="message"
-          value={message}
-          style={{
-            fontSize: fontSize,
-            fontStyle,
-            fontWeight,
-            color
-          }} >
-        </textarea>
+          <textarea
+            id="editor"
+            name="message"
+            value={message}
+            style={{
+              fontSize: fontSize,
+              fontStyle,
+              fontWeight,
+              color
+            }} >
+          </textarea>
         </div>
       </div>
     );
