@@ -23,7 +23,7 @@ export default class Form extends React.Component {
       });
     }
 
-    onSubmit = (event) => {
+    onSubmit = event => {
       event.preventDefault();
       this.setState({
         firstName: '',
@@ -42,7 +42,7 @@ export default class Form extends React.Component {
       });
     }
 
-    resetForm = (event) => {
+    resetForm = event => {
       event.preventDefault();
       this.setState({
         firstName: '',
