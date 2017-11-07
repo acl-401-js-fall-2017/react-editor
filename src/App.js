@@ -29,12 +29,12 @@ class App extends Component {
     this.setState({ color: value });
   }
 
-  handleSeasonChange(value) {
-    this.setState({ season: value });
+  handleSeasonChange(event) {
+    this.setState({ season: event.target.value });
   }
 
   handleSeasonSubmit(event) {
-    alert('We are in the ' + this.state.value + ' season!');
+    alert('We are in the ' + this.state.season + ' season!');
     event.preventDefault();
   }
 
@@ -57,6 +57,8 @@ class App extends Component {
           color={color} statement={statement}
         />
         <Season season={season}
+          onSeasonChange={season => this.handleSeasonChange(season)}
+          onSeasonSubmit={season => this.handleSeasonSubmit(season)}
         />
       </div>
     );

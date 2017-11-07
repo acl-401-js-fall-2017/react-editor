@@ -9,6 +9,7 @@ class Greeting extends Component {
         <span>
           {salutation.toUpperCase()}
         </span>
+        {' '}
         <span>
           {statement}
         </span>
