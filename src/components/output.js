@@ -8,7 +8,7 @@ class Output extends Component {
       <div className="subOutput">
         <h3>Hash from Message: </h3>
         <p>{encrypted}</p>
-        <h3 style={{ color: indicator }}>MessageX and HashX match</h3>
+        <h3 style={{ color: indicator }}>MessageX and HashX{doesComp ? '' : ' do not'} match</h3>
       </div>
     );
        
