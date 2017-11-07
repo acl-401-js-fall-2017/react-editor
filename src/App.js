@@ -84,11 +84,9 @@ class App extends Component {
   }
 
   render() {
-
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">React Editor Lab</h1>
         </header>
 
@@ -112,6 +110,7 @@ class App extends Component {
             height: `${this.state.height}px`,
             border: `4px ${this.state.borderStyle} ${this.state.color}`
           }}>
+            <img src={logo} className="App-logo" alt="logo" /> 
             <span>{this.displayText(this.state.text, this.state.concat)}</span>
           </div>
 
