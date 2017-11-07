@@ -109,7 +109,7 @@ class App extends Component {
           <div className="box" style={{
             width: `${this.state.width}px`,
             height: `${this.state.height}px`,
-            border: `1px ${this.state.borderStyle} ${this.state.color}`
+            border: `4px ${this.state.borderStyle} ${this.state.color}`
           }}>
             <span>{displayText(this.state.text, this.state.concat)}</span>
           </div>
