@@ -8,7 +8,6 @@ class Output extends Component {
       <div className="subOutput">
         <h3>Hash from Message: </h3>
         <p>{encrypted}</p>
-        <br/>
         <h3 style={{ color: indicator }}>MessageX and HashX match</h3>
       </div>
     );
@@ -21,6 +20,7 @@ class Output extends Component {
     }
     return (
       <div className="Output" style={{ color: `hsl(${color}, 100%, 50%)` }}>
+        <h1>Output</h1>
         {dupedOutput}
       </div>
     );

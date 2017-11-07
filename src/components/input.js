@@ -18,6 +18,7 @@ class Input extends Component {
 
     return (
       <div className="Input">
+        <h1>Input</h1>
         <label> Message:
           <textarea
             value={toEncrypt}

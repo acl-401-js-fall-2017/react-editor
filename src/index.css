@@ -17,12 +17,12 @@ label {
 
 .Output, .Input {
   width: 45%
-  
+
 }
 
 .Output, .subOutput {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: flex-start;
   overflow-wrap: break-word
 }
