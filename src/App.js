@@ -67,6 +67,7 @@ class App extends Component {
       function toSnake(text){
         return text.join('_');
       }
+
       function toKebab(text){
         return text.join('-');
       }
@@ -82,9 +83,7 @@ class App extends Component {
         
       }
     }
-    
-    
-    
+
     return (
       <div className="App">
         <header className="App-header">
