@@ -7,7 +7,9 @@ class App extends Component {
     this.state = {
       italic: false,
       bold: false,
-      color: '#000000'
+      color: '#36ade2',
+      fontSize: '1rem',
+      message: 'Lets React'
     };
   }
 
@@ -26,8 +28,11 @@ class App extends Component {
   handleOnFontSize(value) {
     this.setState({ fontSize: value + 'rem' });
   }
-  
 
+  handleOnMessageChange(value) {
+    this.setState({ message: value });
+  }
+  
   render() {
     const { color, italic, bold, fontSize, message } = this.state;
     let fontStyle = null;
@@ -80,21 +85,48 @@ class App extends Component {
           </label>
         </div>
         <div>
-          <textarea
+          <input
             id="editor"
             name="message"
             value={message}
             style={{
-              fontSize: fontSize,
+              textAlign:'center',
+              fontSize,
               fontStyle,
               fontWeight,
               color
-            }} >
-          </textarea>
+            }} 
+            onChange={({ target }) => this.handleOnMessageChange(target.value)}>
+          </input>
         </div>
+        <ShowText 
+          message={message}
+          fontSize={fontSize}
+          fontStyle={fontStyle}
+          fontWeight={fontWeight}
+          color={color}/>
       </div>
     );
   }
 }
+
+class ShowText extends Component {
+  render() {
+    const { fontSize, fontStyle, fontWeight, color } = this.props;
+    return(
+      <div>
+        <span style={{
+          fontSize,
+          fontStyle,
+          fontWeight,
+          background: color
+        }}>
+          {this.props.message}
+        </span>
+      </div>
+    );
+  }
+}
+
 
 export default App;
