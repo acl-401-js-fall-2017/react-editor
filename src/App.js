@@ -13,38 +13,38 @@ class App extends Component {
       fontSize: '100px',
       check: false,
       fontFamily: 'serif'
-    }
+    };
   }
 
   handleSalutationChange(value){
-    this.setState({ salutation: value});
+    this.setState({ salutation: value });
   }
 
   handleNameChange(value){
-    this.setState({ name: value});
+    this.setState({ name: value });
   }
 
   handleColorChange(value){
-    this.setState({ color: value})
+    this.setState({ color: value });
   }
   handeleCommentChange(value){
-    this.setState({ comment: value})
+    this.setState({ comment: value });
   }
   handleFontChange(value){
-    this.setState({ fontSize: value})
+    this.setState({ fontSize: value });
   }
   handleCheck(value){
     this.state.check ? value = false : value = true;
-    this.setState({ check: value })
+    this.setState({ check: value });
   }
   handleSelect(value){
-    this.setState({ fontFamily: value})
+    this.setState({ fontFamily: value });
   }
 
 
   render() {
 
-    const { salutation, name, color, comment, fontSize, check, fontFamily} = this.state;
+    const { salutation, name, color, comment, fontSize, check, fontFamily } = this.state;
     return (
       <div className="App">
         <Controls salutation={salutation} name={name} comment={comment} fontSize={fontSize}
@@ -52,16 +52,16 @@ class App extends Component {
           onNameChange={name => this.handleNameChange(name)}
           onColorChange={color => this.handleColorChange(color)}
           onCommentChange={comment => this.handeleCommentChange(comment)}
-          onFontChange={ fontsize => this.handleFontChange(fontsize)}
-          onCheck={ check => this.handleCheck(check)}
-          onSelect={ select => this.handleSelect(select)}
+          onFontChange={fontsize => this.handleFontChange(fontsize)}
+          onCheck={check => this.handleCheck(check)}
+          onSelect={select => this.handleSelect(select)}
         />
         <Greeting salutation={salutation} fontSize={fontSize}
           color={color} name={name} specialClass="weird"
         />
         <Comment comment={comment} color={color} fontSize={fontSize}
         />
-        <Poem check={ check } fontFamily={fontFamily}/>
+        <Poem check={check} fontFamily={fontFamily}/>
       </div>
     );
   }
@@ -69,7 +69,7 @@ class App extends Component {
 
 class Controls extends Component {
   render(){
-    const { salutation, name, color, comment, fontSize, onCheck, onSelect, onSalutationChange, onNameChange, onColorChange, onCommentChange, onFontChange} = this.props;
+    const { salutation, name, color, comment, fontSize, onCheck, onSelect, onSalutationChange, onNameChange, onColorChange, onCommentChange, onFontChange } = this.props;
     return (
       <div>
         <label>
@@ -105,12 +105,12 @@ class Controls extends Component {
         <br/>
         <label>
            Pick a poem font: 
-           <select onChange={({ target }) => onSelect(target.value)}>
-              <option value="monospace">monospace</option>
-              <option value="cursive">cursive</option>
-              <option value="fantasy">fantasy</option>
-              <option value="system-ui">system-ui</option>
-           </select> 
+          <select onChange={({ target }) => onSelect(target.value)}>
+            <option value="monospace">monospace</option>
+            <option value="cursive">cursive</option>
+            <option value="fantasy">fantasy</option>
+            <option value="system-ui">system-ui</option>
+          </select> 
         </label>
 
       </div>
@@ -167,7 +167,7 @@ class Poem extends Component {
     Somewhere ages and ages hence:
     Two roads diverged in a wood, and I—
     I took the one less traveled by,
-    And that has made all the difference.`
+    And that has made all the difference.`;
     return (
       <p style={{ fontFamily }}>{check && poem}</p>
     );
