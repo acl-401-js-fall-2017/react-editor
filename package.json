@@ -11,6 +11,9 @@
   "scripts": {
     "lint": "eslint src",
     "pretest": "npm run lint",
-    "test": "exit 0"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "exit 0",
+    "eject": "react-scripts eject"
   }
 }
