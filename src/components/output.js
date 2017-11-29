@@ -37,7 +37,7 @@ class Output extends Component {
         <h1>Output</h1>
         {dupedOutput}
         {colorSpan}
-      </div>
+      </div>  
     );
   }
 }
